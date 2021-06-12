@@ -1,6 +1,10 @@
 
 
 
+
+
+
+
 //! slick-carousel
 $(document).ready(function(){
   $('.skills__inner').slick({
@@ -10,6 +14,22 @@ $(document).ready(function(){
 		arrows: false,
 		autoplay: true,
   	autoplaySpeed: 1500,
+
+		responsive: [
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 4,
+				}
+			},
+
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 3,
+				}
+			}
+		]
   });
 });
 

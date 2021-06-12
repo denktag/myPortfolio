@@ -145,6 +145,7 @@ function watching() {
 	watch(['app/**/*.html'], html);
 	watch(['app/js/**/*.js'], scripts);
 	watch(['app/img/**/*.{jpg,png,svg,gif,ico,webp}'], images);
+	watch(['app/video/**/*.{mp4,ogv,ogg,webm,avi,swf}'], video);
 }
 
 

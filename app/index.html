@@ -14,6 +14,14 @@
 
 		<main class="page">
       <article class="info" id="info">
+
+				<div class="info__video-wrap">
+					<video class="info__video" id="video" autoplay loop muted preload="metadata">
+						<!-- <source src="video/video_23.webm" type="video/webm"> -->
+						<source src="video/video_23.mp4" type="video/mp4">
+					</video>
+				</div>
+
 				<div class="info__container _container">
 					<h1 class="info__main-title">
 						Качественная и адаптивная верстка сайтов
@@ -26,9 +34,9 @@
 
 						<div class="info__box">
 							<h2 class="info__title title">
-								Здраствуйте, меня зовут Денис
+								Здраствуйте, меня зовут Денис,
 								<span class="info__title-text">
-									Добро пожаловать на мою страницу
+									добро пожаловать на мою страницу
 								</span>
 							</h2>
 
@@ -111,7 +119,10 @@
 								Адаптивная верстка сайта Yoga
 							</p>
 
-							<a class="works__btn" href="https://denktag.github.io/yoga/dist/">Посмотреть</a>
+							<div class="works__button">
+								<a class="works__btn" href="https://denktag.github.io/yoga/dist/">Посмотреть</a>
+							</div>
+							
 						</div>
 
 						<div class="works__item">
@@ -123,7 +134,10 @@
 								Адаптивная верстка сайта клининговой компании
 							</p>
 
-							<a class="works__btn" href="https://denktag.github.io/sparcle/dist/">Посмотреть</a>
+							<div class="works__button">
+								<a class="works__btn" href="https://denktag.github.io/sparcle/dist/">Посмотреть</a>
+							</div>
+							
 						</div>
 
 						<div class="works__item">
@@ -135,11 +149,14 @@
 								Адаптивная верстка сайта Barbershop
 							</p>
 
-							<a class="works__btn" href="https://denktag.github.io/barbershop/dist/">Посмотреть</a>
+							<div class="works__button">
+								<a class="works__btn" href="https://denktag.github.io/barbershop/dist/">Посмотреть</a>
+							</div>
+							
 						</div>
 					</div>
 				</div>
-			</section>	
+			</section>
 
 			<div class="contact" id="contact">
 				<div class="contact__container _container">
@@ -148,45 +165,45 @@
 					</h2>
 
 					<div class="contact__inner">
-						<div class="contact__item">
+						<a class="contact__item" href="tel:+79094077431">
 							<div class="contact__image">
 								<img class="contact__img" src="img/icons/phone.png" alt="phone icon">
 							</div>
 
-							<div class="contact__info">
-								<a class="contact__link" href="tel:+79094077431">Позвонить</a>
-							</div>
-						</div>
+							<span class="contact__text">
+								Позвонить
+							</span>
+						</a>
 
-						<div class="contact__item">
+						<a class="contact__item" href="mailto:1deniskri@mail.ru">
 							<div class="contact__image">
 								<img class="contact__img" src="img/icons/email.png" alt="email icon">
 							</div>
 
-							<div class="contact__info">
-								<a class="contact__link" href="mailto:1deniskri@mail.ru">1deniskri@mail.ru</a>
-							</div>
-						</div>
+							<span class="contact__text">
+								1deniskri@mail.ru
+							</span>
+						</a>
 
-						<div class="contact__item">
+						<a class="contact__item" href="tg://resolve?domain=denktag">
 							<div class="contact__image">
 								<img class="contact__img" src="img/icons/telegram.svg" alt="telegram icon">
 							</div>
 
-							<div class="contact__info">
-								<a class="contact__link" href="tg://resolve?domain=denktag">Связаться</a>
-							</div>
-						</div>
+							<span class="contact__text">
+								Связаться
+							</span>
+						</a>
 
-						<div class="contact__item">
+						<a class="contact__item" href="https://api.whatsapp.com/send?phone=79094077431">
 							<div class="contact__image">
 								<img class="contact__img" src="img/icons/whatsapp.png" alt="whatsapp icon">
 							</div>
 
-							<div class="contact__info">
-								<a class="contact__link" href="https://api.whatsapp.com/send?phone=79094077431">Связаться</a>
-							</div>
-						</div>
+							<span class="contact__text">
+								Связаться
+							</span>
+						</a>
 					</div>
 				</div>
 			</div>
