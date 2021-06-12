@@ -579,7 +579,7 @@ body {
     padding: 30px 0 30px 15px;
     position: absolute;
     z-index: 5;
-    top: 100px;
+    top: 90px;
     left: 0;
     -webkit-transform: translateX(-120%);
     -ms-transform: translateX(-120%);
