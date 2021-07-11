@@ -449,7 +449,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: calc(30px + 70 * ((100vw - 320px) / 1600));
+  margin-bottom: calc(10px + 90 * ((100vw - 320px) / 1600));
 }
 
 .contact__item {

@@ -352,7 +352,7 @@
 	&__inner {
 		display: flex;
 		justify-content: space-between;
-		@include adaptive(margin-bottom, 100, 30, 3);
+		@include adaptive(margin-bottom, 100, 10, 3);
 	}
 
 	&__item {
