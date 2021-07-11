@@ -1,4 +1,4 @@
-
+"use strict"
 
 
 
@@ -127,7 +127,92 @@ if (animItems.length > 0){
 
 
 
-// Определение поддержки браузером формата webp для использования webp в свойстве background-image в scss
+
+//! форма обратной связи
+document.addEventListener('DOMContentLoaded', function() {
+	const form = document.getElementById('form');
+	form.addEventListener('submit', formSend);
+
+	async function formSend(e) {
+		e.preventDefault();
+
+		let error = formValidate(form);
+		//получаем все введеные данные полей
+		let formData = new FormData(form);
+
+		if (error === 0) {
+			//добавляем класс '_sending' блягодаря которому можно визуально стилизовать то что файлы формы отправляются
+			form.classList.add('_sending');
+			//отправка формы если пройдены все проверки
+			let response = await fetch('sendmail.php', {
+				method: 'POST',
+				body: formData
+			});
+			//проверяем успешно ли отправлена форма
+			if (response.ok) {
+				let result = await response.json();
+				alert(result.message);
+				formPreview.innerHTML = '';
+				form.reset();
+				form.classList.remove('_sending');
+			} else {
+				alert("Ошибка");
+				form.classList.remove('_sending');
+			}
+		} else {
+			alert('Заполните обязательные поля');
+		}
+	}
+
+	function formValidate(e) {
+		let error = 0;
+		let formReq = document.querySelectorAll('._req');
+		//! класс '._req' нужно добавить к тем полям которые мы хотим проверить
+
+		for (let index = 0; index < formReq.length; index++) {
+			const input = formReq[index];
+			formRemoveError(input);
+			//нужно добавить класс '_email' к полю где нужно ввести email
+			if (input.classList.contains('_email')) {
+				if (emailTest(input)) {
+					formAddError(input);
+					error++;
+				}
+			} else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
+				formAddError(input);
+				error++;
+			} else {
+				if (input.value === '') {
+					formAddError(input);
+					error++;
+				}
+			}
+		}
+		return error;
+	}
+
+	//в css нужно стилизовать поля которые не прошли проверку и к которым добавили класс '_error' ('.form__input._error' и для checkbox 'checkbox._error .checkbox__label::before')
+	function formAddError(input) {
+		input.parentElement.classList.add('_error');
+		input.classList.add('_error');
+	}
+
+	function formRemoveError(input) {
+		input.parentElement.classList.remove('_error');
+		input.classList.remove('_error');
+	}
+
+	//функция проверки Email
+	function emailTest(input) {
+		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+	}
+});
+
+
+
+
+
+//! Определение поддержки браузером формата webp для использования webp в свойстве background-image в scss
 function testWebP(callback) {
 
 	let webP = new Image();

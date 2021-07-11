@@ -1,6 +1,6 @@
 //*Задает константы ///////////////////////////////////////////////////////////////////////////////////////////////////////
 const { src, dest, watch, series, parallel } = require('gulp');
-const scss = require('gulp-sass');
+const scss = require('gulp-sass')(require('sass'));
 const autoprefixer = require('gulp-autoprefixer');
 const concat = require('gulp-concat');
 const browsersync = require('browser-sync').create();
@@ -45,13 +45,11 @@ function html() {
 //* Следим за нашим файлом style.scss, конвертируем из него 2 файла css, один обычный, другой минифицированный и закидываем их в папку dist/css///////////////////////////////////////////////////////////////////////////////////////////////////////
 function styles() {
 	return src('app/scss/style.scss')
-		.pipe(scss({
-			outputStyle: 'expanded'
-		}))
+		.pipe(scss({ outputStyle: 'expanded' }).on('error', scss.logError))
 		.pipe(group_media())
 		.pipe(autoprefixer({
 			overrideBrowserslist: ['last 5 version'],
-			cascade: false,
+			cascade: true,
 			grid: true
 		}))
 		.pipe(webpcss())//Этот плагин устанавливают если нужно использование webp в свойстве background-image в scss, для него так же нужно в файл js добавить скрипт, определяющий поддержку браузером формата wepb.
@@ -70,7 +68,7 @@ function scripts() {
 	return src('app/js/**/*.js')
 		.pipe(dest('dist/js/'))
 		.pipe(babel({
-			presets: ['@babel/env']
+			plugins: ['@babel/transform-runtime']
 		}))
 		.pipe(uglify())
 		.pipe(concat('script.min.js'))
