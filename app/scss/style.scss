@@ -12,19 +12,92 @@
 	position: relative;
 	overflow-x: hidden;
 
-	&__video-wrap {
+	// background: radial-gradient(#a23982,#1f1013);
+  // -webkit-overflow-Y: hidden;
+  // -moz-overflow-Y: hidden;
+  // -o-overflow-Y: hidden;
+  // overflow-y: hidden;
+  // -webkit-animation: fadeIn 1 1s ease-out;
+  // -moz-animation: fadeIn 1 1s ease-out;
+  // -o-animation: fadeIn 1 1s ease-out;
+  // animation: fadeIn 1 1s ease-out;
+
+	
+
+	&__bg {
+		// background: linear-gradient(to right, #1d1d1d, #000000, #0c0b0b);
+		// background: linear-gradient(to right, #000000, #292929, #4e4e4e);
+		background: radial-gradient(#000000 40%, #4e4e4e);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
 		position: absolute;
-		top: 0;
 		left: 0;
-		z-index: -1;
+		top: 0;
 		width: 100%;
 		height: 100%;
+		z-index: -1;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+
+		
+	}
+	
+	&__bg-item {
+		background-color: rgba(255, 255, 255);
+		width: 50px;
+		height: 50px;
+		border-radius: 25px;
+		
+		animation-name: light;
+		animation-duration: 15s;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		animation-direction: normal;
+		animation-fill-mode: forwards;
+
+		&--1 {
+			animation-delay: 2s;
+		}
+
+		&--2 {
+			animation-delay: 3s;
+		}
+
+		&--3 {
+			animation-delay: 5s;
+		}
+
+		&--4 {
+			animation-delay: 1s;
+		}
+
+		&--5 {
+			animation-delay: 1.5s;
+		}
+
+		&--6 {
+			animation-delay: 4s;
+		}
 	}
 
-	&__video {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
+	@keyframes light {
+		0% {
+			opacity: 0.05;
+		}
+
+		50% {
+			background-color: #000;
+			width: 200px;
+		}
+
+		100% {
+			margin-left: 100%;
+			opacity: 0.05;
+			background-color: #fff;
+		}
 	}
 
 	&__main-title {

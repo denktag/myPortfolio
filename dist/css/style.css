@@ -193,20 +193,110 @@ body {
   overflow-x: hidden;
 }
 
-.info__video-wrap {
+.info__bg {
+  background: -o-radial-gradient(#000000 40%, #4e4e4e);
+  background: radial-gradient(#000000 40%, #4e4e4e);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: absolute;
-  top: 0;
   left: 0;
-  z-index: -1;
+  top: 0;
   width: 100%;
   height: 100%;
+  z-index: -1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
-.info__video {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+.info__bg-item {
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  -webkit-animation-name: light;
+          animation-name: light;
+  -webkit-animation-duration: 15s;
+          animation-duration: 15s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.info__bg-item--1 {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+.info__bg-item--2 {
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+
+.info__bg-item--3 {
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+}
+
+.info__bg-item--4 {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.info__bg-item--5 {
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+
+.info__bg-item--6 {
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+}
+
+@-webkit-keyframes light {
+  0% {
+    opacity: 0.05;
+  }
+
+  50% {
+    background-color: #000;
+    width: 200px;
+  }
+
+  100% {
+    margin-left: 100%;
+    opacity: 0.05;
+    background-color: #fff;
+  }
+}
+
+@keyframes light {
+  0% {
+    opacity: 0.05;
+  }
+
+  50% {
+    background-color: #000;
+    width: 200px;
+  }
+
+  100% {
+    margin-left: 100%;
+    opacity: 0.05;
+    background-color: #fff;
+  }
 }
 
 .info__main-title {
