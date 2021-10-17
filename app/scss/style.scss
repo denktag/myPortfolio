@@ -46,7 +46,7 @@
 	}
 	
 	&__bg-item {
-		background-color: rgba(255, 255, 255);
+		// background-color: rgba(255, 255, 255);
 		width: 50px;
 		height: 50px;
 		border-radius: 25px;
@@ -87,6 +87,7 @@
 	@keyframes light {
 		0% {
 			opacity: 0.05;
+			background-color: #fff;
 		}
 
 		50% {
