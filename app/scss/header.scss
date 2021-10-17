@@ -17,6 +17,15 @@
 
 	&__item {
 		margin-left: 30px;
+		cursor: pointer;
+		transition: all .3s;
+
+		&:hover {
+			transform: translateY(-2px);
+			.header__link {
+				text-shadow: 2px -2px 3px #fff;
+			}
+		}
 	}
 
 	&__link {
@@ -24,6 +33,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		color: #000;
+		transition: all .3s;
 	}
 }
 
