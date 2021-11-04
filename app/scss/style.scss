@@ -75,9 +75,21 @@
 			background-color: #fff;
 		}
 
-		50% {
+		20% {
+			background-color: #ffd700;
+		}
+
+		40% {
 			background-color: #000;
 			width: 200px;
+		}
+
+		60% {
+			background-color: #fff;
+		}
+
+		80% {
+			background-color: #ffd700;
 		}
 
 		100% {
@@ -113,15 +125,12 @@
 
 	&__photo-box {
 		max-width: 350px;
-		max-height: 350px;
 		border-radius: 5px;
 		overflow: hidden;
 		margin-right: 30px;
-
 		transform: translateX(-120%);
 		opacity: 0;
 		transition: all .8s ease .1s;
-
 		position: relative;
 
 		&._active {
@@ -130,66 +139,93 @@
 		}
 	}
 
+	//! анимация рамки
 	&__photo-line {
+		background-color: goldenrod;
 		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		display: block;
-		z-index: -1;
 
-		&:nth-child(1) {
-			transform:rotate(0deg);
-		}
+		z-index: 10;
 
-		&:nth-child(2) {
-			transform:rotate(90deg);
-		}
-
-		&:nth-child(3) {
-			transform:rotate(180deg);
-		}
-
-		&:nth-child(4) {
-			transform:rotate(270deg);
-		}
-
-		&::before {
-			content: '';
-			position: absolute;
-			// width:100%;
-			width: 0px;
+		&--bot,
+		&--top {
+			width: 100%;
 			height: 5px;
-			background: white;
-			animation: anim-ramka 2s linear normal forwards;
-			// animation-direction: normal;
-			// animation-fill-mode: forwards;
+		}
+
+		&--right,
+		&--left {
+			height: 100%;
+			width: 5px;
+		}
+
+		&--top {
+			top: 0;
+			transform: translateX(-100%);
+			animation: anim-ramka-top 1s linear normal forwards;
+		}
+
+		&--right {
+			right: 0;
+			transform: translateY(-100%);
+			animation: anim-ramka-right 1s linear 1s normal forwards;
+		}
+		
+		&--bot {
+			bottom: 0;
+			transform: translateX(100%);
+			animation: anim-ramka-bot 1s linear 2s normal forwards;
+		}
+
+		&--left {
+			left: 0;
+			transform: translateY(100%);
+			animation: anim-ramka-right 1s linear 3s normal forwards;
 		}
 	}
 
-	@keyframes anim-ramka {
+	@keyframes anim-ramka-top {
 		0% {
-			// background-color: #fff;
-			background-color: gold;
 		}
 		
 		100% {
-				// background-color: gold;
-				background-color: #fff;
-				width: 100%;
-		} 
-	} 
-	
+			transform: translateX(0);
+		}
+	}
+
+	@keyframes anim-ramka-right {
+		0% {
+		}
+		
+		100% {
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes anim-ramka-bot {
+		0% {
+		}
+		
+		100% {
+			transform: translateX(0);
+		}
+	}
+
+	@keyframes anim-ramka-left {
+		0% {
+		}
+		
+		100% {
+			transform: translateY(0);
+		}
+	}
 
 	&__photo {
 		padding: 5px;
 		width: 100%;
+		height: 100%;
 		max-height: 100%;
 		vertical-align: top;
 		object-fit: cover;
-		border-radius: 10px;
-		overflow: hidden;
 	}
 
 	&__title-text {
